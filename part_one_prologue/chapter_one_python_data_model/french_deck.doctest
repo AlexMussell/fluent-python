@@ -19,9 +19,10 @@ Card(rank='Q', suit='hearts')
 ...
 >>> suit_values = dict(spades=3, hearts=2, diamonds=1, clubs=0)
 >>> def spades_high(card):
-...     rank_value = FrenchDeck.ranks.index(card.rank)
+...     rank_value = FrenchDeck.ranks.index(card.rank)     the INDEX of the rank in range (2, 11) + list(JQKA)
 ...     return rank_value * len(suit_values) + suit_values[card.suit]
-
+...                3      *           4      +                 2              2 of hearts = 14
+...        r starts at 0th pos at 2, 1st at 3, 2nd at 4, 3rd at 5
 
 Rank test:
 
