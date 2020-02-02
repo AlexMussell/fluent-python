@@ -26,7 +26,16 @@ class TestFrenchDeck(unittest.TestCase):
         self.assertEqual(deck[12::13], [Card(rank='A', suit='spades'),
                                         Card(rank='A', suit='diamonds'),
                                         Card(rank='A', suit='clubs'),
-                                        Card(rank='A', suit='hearts')])
-                
+                                        Card(rank='A', suit='hearts')]) 
+
+    def test_card_in_deck(self):
+        deck = FrenchDeck()
+        self.assertIn(Card(rank='Q', suit='hearts'), deck)
+
+    def test_card_not_in_deck(self):
+        deck = FrenchDeck()
+        self.assertNotIn(Card(rank='Q', suit='whopper'), deck)
+
+
 if __name__ == "__main__":
     unittest.main()
