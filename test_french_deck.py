@@ -1,5 +1,5 @@
 import unittest
-from part_one_prologue.chapter_one_python_data_model.french_deck import FrenchDeck, Card
+from part_one_prologue.chapter_one_python_data_model.french_deck.french_deck import FrenchDeck, Card
 
 class TestFrenchDeck(unittest.TestCase):
     
