@@ -62,3 +62,33 @@ if __name__ == '__main__':
 def grade(score, breakpoints=[60, 70, 80, 90], grades='FDCBA'):
     i = bisect.bisect(breakpoints, score)
     return grades[i]
+
+# array faster if wanting to store large floats etc as array stored packed bytes representing machine value
+# list() doesnt support bytes, use array
+# no inplace sort method like array.sort as of 3.4. use sorted(array)
+# if adding and removing from ends of lists (FIFO), use deque
+# if lots of x in y, consider set()
+
+# you can use:
+# array1 = array('x', 'x')
+# fp = open('file.bin', 'wb')
+# array1.tofile(fp)
+# fp.close()
+# array2 = array('x')
+# fp = open('file.bin', 'rb')
+# array2.fromfile(fp, 'x')
+
+# way faster to read/write from binary file and not text
+# this is good for only numbers, for other datatypes, use pickle
+
+from collections import deque
+dq = deque(range(10), maxlen=10)
+# deque([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], maxlen=10
+dq.rotate(3)  # take last 3 and put to front
+# deque([7, 8, 9, 0, 1, 2, 3, 4, 5, 6], maxlen=10)
+dq.rotate(-4) # take first 4 and move to end
+# deque([1, 2, 3, 4, 5, 6, 7, 8, 9, 0], maxlen=10)
+# other opts: appendleft, extend, extendleft(iter) iter is appended reversed
+# deque has same methods as list + rotated and popleft
+# slow at removing from middle. best for fifo in multithreads apps without need for locks
+# other queue libs: queue, multiprocessing, asyncio, heapq
