@@ -31,5 +31,4 @@ test_filt = [fact(n) for n in range(6) if n % 2]
 # Anyonymous funcs that are limited to pure expressions
 # Best use is in context of arg list.
 
-
 sorted(fruits, key=lambda word: word[::1])    # Higher order func
