@@ -28,4 +28,4 @@ callable(bingo)
 # >>>True
 # implemeting __call__ is an easy way to create function like objects that have some internal state
 
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
