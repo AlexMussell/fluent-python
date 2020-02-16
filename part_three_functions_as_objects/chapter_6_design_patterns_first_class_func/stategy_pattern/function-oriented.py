@@ -99,3 +99,11 @@ def best_promo(order):
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
+
+
+# Command Strat
+# The goal of command is to decouple an object thgat invokes and operation, from the provider object that implements it/
+# Put the comman object between the 2
+# Means the onvoker does not need to know the interface of the reciever. Meaning different recievers can be adapted through command subclass.
+# Commands are an OO replacement for callbacks
+                                                                                                                                                                                                                     
