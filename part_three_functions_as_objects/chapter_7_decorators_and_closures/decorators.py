@@ -62,3 +62,23 @@ if __name__=='__main__':
 
 # Referring back to the promotions issue in chapter 6. function oriented.py. One issue is that if someone added a new offer, they had to remember to update
 # the promo list which can easily cause bugs. This can be fixed with decorators.
+
+
+#### More advanced decorators
+
+# Create a decorator that takes a function, and clocks every invocation and prints the elapsed time
+
+import time
+
+def clock(func):
+    def clocked(*args):
+        t0 = time.perf_counter()
+        result = func(*args)
+        elapsed_time = time.perf_counter() - t0
+        name = func.__name__
+        arg_str = ', '.join(repr(arg) for arg in args)
+        print('[%0.8fs] %s(%s) -> %r' % (elapsed_time, name, arg_str, result))
+        return result
+    return clocked
+
+
